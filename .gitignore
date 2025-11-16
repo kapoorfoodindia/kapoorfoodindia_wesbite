@@ -1,0 +1,27 @@
+# Node modules (if you add any build tools later)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Build files (if you add a build process)
+dist/
+build/

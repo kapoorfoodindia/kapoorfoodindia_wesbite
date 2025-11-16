@@ -1,0 +1,47 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Frozen Green Peas",
+      "description": "Premium quality frozen green peas, handpicked and quick-frozen to preserve their natural sweetness and nutritional value. Perfect for curries, rice dishes, and snacks.",
+      "image": "assets/images/frozen-peas.jpg",
+      "category": "Vegetables",
+      "features": [
+        "100% Natural",
+        "No Preservatives",
+        "Rich in Protein & Fiber",
+        "Ready to Cook"
+      ],
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Frozen Sweet Corn",
+      "description": "Golden sweet corn kernels frozen at peak freshness. A versatile ingredient for soups, salads, and Indian dishes. Rich in vitamins and naturally sweet.",
+      "image": "assets/images/frozen-corn.jpg",
+      "category": "Vegetables",
+      "features": [
+        "Fresh & Sweet",
+        "High in Fiber",
+        "Vitamin Rich",
+        "Pre-cleaned"
+      ],
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Frozen Mix Vegetables",
+      "description": "A carefully selected blend of premium vegetables including peas, carrots, beans, and corn. Perfect for quick meals, pulao, and Chinese dishes.",
+      "image": "assets/images/mix-veg.jpg",
+      "category": "Vegetables",
+      "features": [
+        "Balanced Mix",
+        "Time-Saving",
+        "Nutrient Dense",
+        "Versatile Use"
+      ],
+      "available": true
+    }
+  ],
+  "lastUpdated": "2024-11-16"
+}
