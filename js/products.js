@@ -1,9 +1,20 @@
 // Products management JavaScript
 
-// Load products from JSON
+// Load products from JSON (works from root and nested pages)
 async function loadProducts() {
     try {
-        const response = await fetch('data/products.json');
+        // Build a relative path to the site root, regardless of nesting
+        const path = window.location.pathname;
+        const parts = path.split('/').filter(Boolean);
+        const last = parts[parts.length - 1] || '';
+        // If the last segment looks like a file (has a dot), don't count it as a level
+        const isFile = last.includes('.');
+        const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
+        const prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
+        const url = `${prefix}data/products.json`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to fetch ${url} (${response.status})`);
         const data = await response.json();
         return data.products;
     } catch (error) {
@@ -12,75 +23,7 @@ async function loadProducts() {
     }
 }
 
-// Display products on homepage
-async function displayHomeProducts() {
-    const productsGrid = document.getElementById('productsGrid');
-    if (!productsGrid) return;
-
-    const products = await loadProducts();
-    
-    if (products.length === 0) {
-        productsGrid.innerHTML = '<p class="no-products">No products available at the moment.</p>';
-        return;
-    }
-
-    productsGrid.innerHTML = products.map(product => `
-        <div class="product-card">
-            <div class="product-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-box-open"></i>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <p>${product.description.substring(0, 100)}...</p>
-                <div class="product-features">
-                    ${product.features.slice(0, 2).map(feature => 
-                        `<span class="feature-tag"><i class="fas fa-check"></i> ${feature}</span>`
-                    ).join('')}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Display products on products page
-async function displayProductsPage() {
-    const productsGrid = document.getElementById('productsPageGrid');
-    if (!productsGrid) return;
-
-    const products = await loadProducts();
-    
-    if (products.length === 0) {
-        productsGrid.innerHTML = '<p class="no-products">No products available at the moment.</p>';
-        return;
-    }
-
-    productsGrid.innerHTML = products.map(product => `
-        <div class="product-card large">
-            <div class="product-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-box-open"></i>
-                </div>
-            </div>
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <div class="product-features">
-                    ${product.features.map(feature => 
-                        `<span class="feature-tag"><i class="fas fa-check"></i> ${feature}</span>`
-                    ).join('')}
-                </div>
-                <div class="product-status">
-                    ${product.available ? 
-                        '<span class="status-badge available"><i class="fas fa-check-circle"></i> Available</span>' : 
-                        '<span class="status-badge unavailable"><i class="fas fa-times-circle"></i> Out of Stock</span>'
-                    }
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
+// Removed older grid renderers for home/products pages (unused)
 
 // Display products in footer
 async function displayFooterProducts() {
@@ -88,15 +31,93 @@ async function displayFooterProducts() {
     if (!footerProducts) return;
 
     const products = await loadProducts();
-    
-    footerProducts.innerHTML = products.map(product => 
-        `<li><a href="products.html">${product.name}</a></li>`
+    // Build links that work from any nesting level
+    const path = window.location.pathname;
+    const parts = path.split('/').filter(Boolean);
+    const last = parts[parts.length - 1] || '';
+    const isFile = last.includes('.');
+    const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
+    const prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
+
+    footerProducts.innerHTML = products.map(product =>
+        `<li><a href="${prefix}products/${product.slug}/">${product.name}</a></li>`
     ).join('');
 }
 
 // Initialize products display
 document.addEventListener('DOMContentLoaded', function() {
-    displayHomeProducts();
-    displayProductsPage();
+    displayProductsList();
     displayFooterProducts();
 });
+
+// New: simple list of product names linking to detail pages
+async function displayProductsList() {
+    // Preferred: horizontal scroller with image + name
+    const scroller = document.getElementById('productScroller');
+    const listEl = document.getElementById('productList'); // legacy fallback
+    if (!scroller && !listEl) return;
+    const products = await loadProducts();
+    if (products.length === 0) {
+        if (scroller) scroller.innerHTML = '<p class="no-products">No products available.</p>';
+        if (listEl) listEl.innerHTML = '<li>No products available.</li>';
+        return;
+    }
+    if (scroller) {
+        scroller.innerHTML = products.map(p => {
+            const imageUrl = (p.images && p.images.length ? p.images[0] : (p.image || 'assets/images/placeholder.jpg'));
+            const href = `products/${p.slug}/`;
+            return `
+            <div class="product-tile">
+                <a href="${href}" aria-label="${p.name}">
+                    <img class="product-thumb" src="${imageUrl}" alt="${p.name}" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/images/placeholder.jpg';">
+                    <div class="product-title">${p.name}</div>
+                </a>
+            </div>`;
+        }).join('');
+
+        // Enable arrow controls
+        const wrapper = scroller.closest('.scroller-wrapper');
+        const prevBtn = wrapper ? wrapper.querySelector('.scroller-btn.prev') : null;
+        const nextBtn = wrapper ? wrapper.querySelector('.scroller-btn.next') : null;
+
+        // Page size: exactly 3 tiles per view
+        const pageAmount = () => {
+            const tile = scroller.querySelector('.product-tile');
+            if (!tile) return scroller.clientWidth;
+            const styles = getComputedStyle(scroller);
+            const gap = parseFloat(styles.columnGap || styles.gap || 0);
+            return tile.offsetWidth * 3 + gap * 2; // 3 tiles + two gaps
+        };
+        const atStart = () => scroller.scrollLeft <= 0;
+        const atEnd = () => scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 1;
+        const updateButtons = () => {
+            if (!prevBtn || !nextBtn) return;
+            prevBtn.disabled = atStart();
+            nextBtn.disabled = atEnd();
+        };
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { scroller.scrollBy({left: -pageAmount(), behavior: 'smooth'}); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { scroller.scrollBy({left:  pageAmount(), behavior: 'smooth'}); });
+        scroller.addEventListener('scroll', updateButtons, {passive:true});
+        // Ensure layout complete before first state calc
+        requestAnimationFrame(updateButtons);
+
+        // Drag-to-scroll for desktop
+        let isDown = false; let startX = 0; let startLeft = 0;
+        const onDown = (e) => { isDown = true; scroller.classList.add('dragging'); startX = (e.pageX || e.touches?.[0]?.pageX || 0); startLeft = scroller.scrollLeft; };
+        const onMove = (e) => { if(!isDown) return; const x = (e.pageX || e.touches?.[0]?.pageX || 0); scroller.scrollLeft = startLeft - (x - startX); };
+        const onUp = () => { isDown = false; scroller.classList.remove('dragging'); };
+        scroller.addEventListener('mousedown', onDown);
+        scroller.addEventListener('mousemove', onMove);
+        scroller.addEventListener('mouseleave', onUp);
+        scroller.addEventListener('mouseup', onUp);
+        scroller.addEventListener('touchstart', onDown, {passive:true});
+        scroller.addEventListener('touchmove', onMove, {passive:true});
+        scroller.addEventListener('touchend', onUp);
+    }
+
+    // Keep supporting the legacy vertical list if present on any page
+    if (listEl) {
+        listEl.innerHTML = products.map(p => `<li class="product-list-item"><a href="products/${p.slug}/" class="product-link">${p.name}</a></li>`).join('');
+    }
+}

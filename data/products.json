@@ -3,44 +3,169 @@
     {
       "id": 1,
       "name": "Frozen Green Peas",
-      "description": "Premium quality frozen green peas, handpicked and quick-frozen to preserve their natural sweetness and nutritional value. Perfect for curries, rice dishes, and snacks.",
-      "image": "assets/images/frozen-peas.jpg",
+      "slug": "frozen-green-peas",
       "category": "Vegetables",
-      "features": [
-        "100% Natural",
-        "No Preservatives",
-        "Rich in Protein & Fiber",
-        "Ready to Cook"
+      "shortDescription": "Premium quality frozen green peas, handpicked and quick-frozen to preserve their natural sweetness and nutritional value.",
+      "description": "Our Frozen Green Peas are sourced from the finest farms in North India and processed using state-of-the-art IQF (Individual Quick Freezing) technology. This method ensures that each pea retains its natural color, texture, and nutritional value. These tender, sweet peas are perfect for traditional Indian dishes like matar paneer, pulao, samosas, and parathas. They're also excellent in pasta, soups, and salads.",
+      "images": [
+        "assets/images/frozen-peas-1.png"
       ],
-      "available": true
+      "features": [
+        "100% Natural & Fresh",
+        "No Artificial Preservatives",
+        "Rich in Protein & Dietary Fiber",
+        "Pre-cleaned & Ready to Cook",
+        "IQF Technology",
+        "Gluten-Free & Vegan"
+      ],
+      "nutritionalInfo": {
+        "servingSize": "100g",
+        "calories": "81 kcal",
+        "protein": "5.4g",
+        "carbohydrates": "14.5g",
+        "fiber": "5.7g",
+        "fat": "0.4g",
+        "vitamins": ["Vitamin K", "Vitamin C", "Vitamin A", "Folate"],
+        "minerals": ["Iron", "Manganese", "Phosphorus"]
+      },
+      "packaging": {
+        "sizes": ["500g", "1kg", "2kg", "5kg"],
+        "type": "Food-grade polyethylene bags with resealable zipper"
+      },
+      "storage": {
+        "temperature": "-18°C or below",
+        "shelfLife": "12 months from manufacturing date",
+        "instructions": "Keep frozen. Do not refreeze after thawing."
+      },
+      "cookingTips": [
+        "No need to thaw - add directly to your cooking",
+        "Cooking time: 5-7 minutes in boiling water",
+        "Can be used in curries, rice dishes, soups, and snacks",
+        "Perfect for matar paneer, aloo matar, and peas pulao"
+      ],
+      "certifications": ["FSSAI Approved", "ISO 22000"],
+      "available": true,
+      "popular": true
     },
     {
       "id": 2,
       "name": "Frozen Sweet Corn",
-      "description": "Golden sweet corn kernels frozen at peak freshness. A versatile ingredient for soups, salads, and Indian dishes. Rich in vitamins and naturally sweet.",
-      "image": "assets/images/frozen-corn.jpg",
+      "slug": "frozen-sweet-corn",
       "category": "Vegetables",
-      "features": [
-        "Fresh & Sweet",
-        "High in Fiber",
-        "Vitamin Rich",
-        "Pre-cleaned"
+      "shortDescription": "Golden sweet corn kernels frozen at peak freshness, naturally sweet and packed with nutrients.",
+      "description": "Our Frozen Sweet Corn features premium quality corn kernels harvested at the peak of ripeness and immediately frozen to lock in their natural sweetness and nutritional goodness. Each kernel bursts with flavor and maintains its tender-crisp texture. Ideal for soups, salads, pasta, chaat, sandwiches, and traditional corn preparations. These versatile kernels add a touch of natural sweetness and vibrant color to any dish.",
+      "images": [
+        "assets/images/frozen-corn-1.png"
       ],
-      "available": true
+      "features": [
+        "Farm Fresh & Sweet",
+        "High in Dietary Fiber",
+        "Rich in Vitamins & Antioxidants",
+        "Pre-cleaned & Ready to Use",
+        "Non-GMO",
+        "Zero Trans Fat"
+      ],
+      "nutritionalInfo": {
+        "servingSize": "100g",
+        "calories": "86 kcal",
+        "protein": "3.3g",
+        "carbohydrates": "18.7g",
+        "fiber": "2.0g",
+        "fat": "1.4g",
+        "vitamins": ["Vitamin B6", "Vitamin C", "Thiamine", "Folate"],
+        "minerals": ["Magnesium", "Phosphorus", "Potassium"]
+      },
+      "packaging": {
+        "sizes": ["500g", "1kg", "2kg", "5kg"],
+        "type": "Moisture-proof food-grade packaging with easy-open seal"
+      },
+      "storage": {
+        "temperature": "-18°C or below",
+        "shelfLife": "12 months from manufacturing date",
+        "instructions": "Store in freezer. Once opened, reseal properly and use within 7 days."
+      },
+      "cookingTips": [
+        "Use directly from frozen - no thawing required",
+        "Boil for 3-5 minutes or microwave for 2-3 minutes",
+        "Perfect for corn chaat, soups, fried rice, and salads",
+        "Can be roasted or grilled for a smoky flavor",
+        "Excellent in Mexican and continental dishes"
+      ],
+      "certifications": ["FSSAI Approved", "ISO 22000"],
+      "available": true,
+      "popular": true
     },
     {
       "id": 3,
       "name": "Frozen Mix Vegetables",
-      "description": "A carefully selected blend of premium vegetables including peas, carrots, beans, and corn. Perfect for quick meals, pulao, and Chinese dishes.",
-      "image": "assets/images/mix-veg.jpg",
+      "slug": "frozen-mix-vegetables",
       "category": "Vegetables",
-      "features": [
-        "Balanced Mix",
-        "Time-Saving",
-        "Nutrient Dense",
-        "Versatile Use"
+      "shortDescription": "A perfectly balanced blend of premium vegetables - peas, carrots, beans, and corn for ultimate convenience.",
+      "description": "Our Frozen Mix Vegetables offer the perfect combination of nutrition and convenience. This thoughtfully curated blend includes garden-fresh green peas, crisp carrots, tender French beans, and sweet corn kernels - all selected at their prime and frozen using advanced technology. This versatile mix is your go-to solution for quick yet nutritious meals. Ideal for vegetable pulao, fried rice, pasta, noodles, curries, and Chinese preparations. Save time on washing, peeling, and chopping while ensuring your family gets balanced nutrition.",
+      "images": [
+        "assets/images/mix-veg-1.png"
       ],
-      "available": true
+      "features": [
+        "4-in-1 Balanced Vegetable Mix",
+        "Pre-cut & Ready to Cook",
+        "Nutrient Dense & Wholesome",
+        "Time-Saving Kitchen Essential",
+        "No Artificial Colors or Flavors",
+        "Family-Friendly"
+      ],
+      "composition": {
+        "greenPeas": "30%",
+        "carrots": "30%",
+        "frenchBeans": "25%",
+        "sweetCorn": "15%"
+      },
+      "nutritionalInfo": {
+        "servingSize": "100g",
+        "calories": "68 kcal",
+        "protein": "3.5g",
+        "carbohydrates": "13.2g",
+        "fiber": "4.2g",
+        "fat": "0.5g",
+        "vitamins": ["Vitamin A", "Vitamin C", "Vitamin K", "B-Complex"],
+        "minerals": ["Iron", "Calcium", "Potassium", "Magnesium"]
+      },
+      "packaging": {
+        "sizes": ["500g", "1kg", "2.5kg", "5kg"],
+        "type": "Triple-layer food-grade packaging with zip-lock facility"
+      },
+      "storage": {
+        "temperature": "-18°C or below",
+        "shelfLife": "12 months from manufacturing date",
+        "instructions": "Keep frozen at all times. Do not refreeze once thawed. Use directly from freezer."
+      },
+      "cookingTips": [
+        "Add directly to your cooking without thawing",
+        "Perfect for quick pulao, biryani, and fried rice",
+        "Ideal for vegetable curries and stir-fries",
+        "Great for Chinese dishes like manchurian and noodles",
+        "Cooking time: 7-10 minutes",
+        "Can be pressure cooked or microwaved"
+      ],
+      "perfectFor": [
+        "Vegetable Pulao & Biryani",
+        "Fried Rice & Noodles",
+        "Mixed Vegetable Curry",
+        "Vegetable Manchurian",
+        "Pasta & Continental Dishes",
+        "Soups & Stews"
+      ],
+      "certifications": ["FSSAI Approved", "ISO 22000"],
+      "available": true,
+      "popular": true,
+      "bestSeller": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "vegetables",
+      "name": "Vegetables",
+      "description": "Fresh frozen vegetables picked at peak ripeness and frozen to preserve nutrients",
+      "image": "assets/images/category-vegetables.jpg"
     }
   ],
   "lastUpdated": "2024-11-16"
