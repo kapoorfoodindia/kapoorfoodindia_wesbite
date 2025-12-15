@@ -38,21 +38,18 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products Section (List View) -->
     <section class="products-page-section">
         <div class="container">
             <div class="products-intro">
-                <h2>From Our Farms, To Your Freezer!</h2>
-                <p>
-                    At Kapoor Food India, we believe great taste begins with responsible choices. 
-                    Our advanced freezing technology locks in freshness, flavor, and nutrients at their peak, 
-                    without the need for artificial preservatives. From harvest to packaging, every step is 
-                    designed to minimize waste and maximize quality.
-                </p>
+                <h2>Our Products</h2>
+                <p>Select a product below to view full details.</p>
             </div>
-
-            <div class="products-grid large" id="productsPageGrid">
-                <!-- Products will be loaded dynamically -->
+            <!-- Horizontal product scroller with controls -->
+            <div class="scroller-wrapper">
+                <button class="scroller-btn prev" aria-label="Scroll left" type="button"><i class="fas fa-chevron-left"></i></button>
+                <div id="productScroller" class="product-scroller" aria-label="Products"></div>
+                <button class="scroller-btn next" aria-label="Scroll right" type="button"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -115,9 +112,9 @@
                 <div class="footer-col">
                     <h3>Contact Info</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh, India</li>
-                        <li><i class="fas fa-phone"></i> +91 XXXXXXXXXX</li>
-                        <li><i class="fas fa-envelope"></i> info@kapoorfoodindia.in</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 5/44, Vineet Khand, Gomti Nagar, Lucknow- 226010</li>
+                        <li><i class="fas fa-phone"></i> +91 9999989714</li>
+                        <li><i class="fas fa-envelope"></i> kapoorfoodindia@gmail.com</li>
                     </ul>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -133,7 +130,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/products.js"></script>
+    <script defer src="js/main.js?v=2"></script>
+    <script defer src="js/products.js?v=2"></script>
 </body>
 </html>

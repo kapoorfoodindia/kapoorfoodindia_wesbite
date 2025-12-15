@@ -238,7 +238,7 @@ The contact form stores submissions in localStorage. To receive emails:
 
 For questions or issues:
 - Website: [kapoorfoodindia.in](https://kapoorfoodindia.in)
-- Email: info@kapoorfoodindia.in
+- Email: kapoorfoodindia@gmail.com
 
 ## 📄 License
 
