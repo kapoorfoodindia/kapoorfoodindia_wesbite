@@ -13,10 +13,13 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>Kapoor Food India</h1>
-                    <p class="tagline">From Lucknow with Freshness</p>
-                </div>
+                <a class="logo logo-link" href="index.html" aria-label="Kapoor Food India">
+                    <img class="logo-img" src="assets/logo/KFI_logo.png" alt="Kapoor Food India logo">
+                    <div class="logo-text">
+                        <h1>Kapoor Food India</h1>
+                        <p class="tagline">From Lucknow with Freshness</p>
+                    </div>
+                </a>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -92,8 +95,9 @@
                 </div>
 
                 <div class="contact-form-section">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwpgdlaz" method="POST">
                         <h2>Send Us a Message</h2>
+                        <input type="hidden" name="subject" value="New contact from Kapoor Food India">
                         
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -102,12 +106,23 @@
 
                         <div class="form-group">
                             <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required aria-describedby="emailError">
+                            <div id="emailError" class="field-error" role="alert"></div>
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                            <div class="phone-input">
+                                <select id="countryCode" name="countryCode" aria-label="Country code">
+                                    <option value="+91" selected>+91 (India)</option>
+                                    <option value="+1">+1 (USA)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+61">+61 (Australia)</option>
+                                    <option value="+971">+971 (UAE)</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone" inputmode="numeric" pattern="[0-9]*" aria-describedby="phoneError" placeholder="Phone number">
+                            </div>
+                            <div id="phoneError" class="field-error" role="alert"></div>
                         </div>
 
                         <div class="form-group">
@@ -127,7 +142,7 @@
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
