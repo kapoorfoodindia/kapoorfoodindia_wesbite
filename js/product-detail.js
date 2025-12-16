@@ -6,7 +6,15 @@
   const slugIndex = parts.lastIndexOf('products');
   const slug = slugIndex >=0 ? parts[slugIndex+1] : null;
   if(!slug){return;}
-  const dataPath = slugIndex >=0 ? Array(parts.length - slugIndex).fill('..').join('/') + '/data/products.json' : 'data/products.json';
+  // On GitHub Pages, use absolute base /<repo>/data/products.json
+  const isGhPages = window.location.hostname.endsWith('github.io');
+  let dataPath;
+  if (isGhPages) {
+    const repo = parts[0] || '';
+    dataPath = `/${repo}/data/products.json`;
+  } else {
+    dataPath = slugIndex >=0 ? Array(parts.length - slugIndex).fill('..').join('/') + '/data/products.json' : 'data/products.json';
+  }
   try {
     const resp = await fetch(dataPath);
     const data = await resp.json();
