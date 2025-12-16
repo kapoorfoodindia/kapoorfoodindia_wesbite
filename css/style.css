@@ -1,3 +1,7 @@
+.field-error{color:#e74c3c;font-size:.9rem;margin-top:.25rem;min-height:1em}
+.phone-input{display:flex;gap:.5rem;align-items:center}
+.phone-input select{padding:.5rem;border:1px solid #ddd;border-radius:8px;background:#fff;width:110px;white-space:nowrap;}
+.phone-input input{flex:1}
 /* Kapoor Food India - Main Stylesheet */
 
 /* CSS Variables */
@@ -75,6 +79,12 @@ ul {
     align-items: center;
     padding: 1rem 0;
 }
+
+/* Header logo layout */
+.logo-link{display:flex;align-items:center;gap:.75rem}
+.logo-img{height:80px;width:auto;display:block}
+.logo-text h1{margin:0;line-height:1}
+.logo-text .tagline{margin:0}
 
 .logo h1 {
     font-size: 1.8rem;
@@ -959,6 +969,14 @@ section {
     resize: vertical;
 }
 
+/* Phone input layout overrides (ensure number field gets space) */
+.contact-form .phone-input{display:flex;gap:.5rem;align-items:center}
+.contact-form .phone-input select{width:110px;flex:0 0 110px}
+.contact-form .phone-input input{flex:1 1 auto;min-width:0}
+
+/* Disabled button state */
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+
 /* Distributor Section */
 .distributor-section {
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
@@ -1000,6 +1018,9 @@ section {
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
+
+/* Footer logo */
+.footer-logo{display:none}
 
 .footer-col p {
     font-size: 0.95rem;
@@ -1152,6 +1173,7 @@ section {
     .section-header h2 {
         font-size: 2rem;
     }
+    .logo-img{height:36px}
     
     .products-grid,
     .products-grid.large {
