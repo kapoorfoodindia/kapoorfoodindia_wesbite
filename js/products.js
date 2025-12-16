@@ -3,15 +3,26 @@
 // Load products from JSON (works from root and nested pages)
 async function loadProducts() {
     try {
-        // Build a relative path to the site root, regardless of nesting
-        const path = window.location.pathname;
-        const parts = path.split('/').filter(Boolean);
-        const last = parts[parts.length - 1] || '';
-        // If the last segment looks like a file (has a dot), don't count it as a level
-        const isFile = last.includes('.');
-        const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
-        const prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
-        const url = `${prefix}data/products.json`;
+        // Detect GitHub Pages and use absolute repo base
+        const isGhPages = window.location.hostname.endsWith('github.io');
+        let url;
+        if (isGhPages) {
+            const segs = window.location.pathname.split('/').filter(Boolean);
+            // Repo base is the first segment: /<repo>/
+            const repo = segs[0] || '';
+            const base = `/${repo}/`;
+            url = `${base}data/products.json`;
+        } else {
+            // Local/dev: Build a relative path to the site root, regardless of nesting
+            const path = window.location.pathname;
+            const parts = path.split('/').filter(Boolean);
+            const last = parts[parts.length - 1] || '';
+            // If the last segment looks like a file (has a dot), don't count it as a level
+            const isFile = last.includes('.');
+            const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
+            const prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
+            url = `${prefix}data/products.json`;
+        }
 
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Failed to fetch ${url} (${response.status})`);
@@ -31,13 +42,21 @@ async function displayFooterProducts() {
     if (!footerProducts) return;
 
     const products = await loadProducts();
-    // Build links that work from any nesting level
-    const path = window.location.pathname;
-    const parts = path.split('/').filter(Boolean);
-    const last = parts[parts.length - 1] || '';
-    const isFile = last.includes('.');
-    const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
-    const prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
+    // Build links that work from any nesting level and on GitHub Pages
+    const isGhPages = window.location.hostname.endsWith('github.io');
+    let prefix;
+    if (isGhPages) {
+        const segs = window.location.pathname.split('/').filter(Boolean);
+        const repo = segs[0] || '';
+        prefix = `/${repo}/`;
+    } else {
+        const path = window.location.pathname;
+        const parts = path.split('/').filter(Boolean);
+        const last = parts[parts.length - 1] || '';
+        const isFile = last.includes('.');
+        const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
+        prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
+    }
 
     footerProducts.innerHTML = products.map(product =>
         `<li><a href="${prefix}products/${product.slug}/">${product.name}</a></li>`
@@ -65,7 +84,16 @@ async function displayProductsList() {
     if (scroller) {
         scroller.innerHTML = products.map(p => {
             const imageUrl = (p.images && p.images.length ? p.images[0] : (p.image || 'assets/images/placeholder.jpg'));
-            const href = `products/${p.slug}/`;
+            const isGhPages = window.location.hostname.endsWith('github.io');
+            let href;
+            if (isGhPages) {
+                const segs = window.location.pathname.split('/').filter(Boolean);
+                const repo = segs[0] || '';
+                const base = `/${repo}/`;
+                href = `${base}products/${p.slug}/`;
+            } else {
+                href = `products/${p.slug}/`;
+            }
             return `
             <div class="product-tile">
                 <a href="${href}" aria-label="${p.name}">
