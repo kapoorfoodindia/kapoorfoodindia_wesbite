@@ -32,7 +32,15 @@
 function renderProduct(product){
   const container = document.getElementById('productDetail');
   if(!container) return;
-  const imageSrc = (product.images && product.images.length ? `/${product.images[0]}` : '');
+  // Build an image URL that works both locally and on GitHub Pages
+  const isGhPages = window.location.hostname.endsWith('github.io');
+  let base = '/';
+  if (isGhPages) {
+    const segs = window.location.pathname.split('/').filter(Boolean);
+    const repo = segs[0] || '';
+    base = `/${repo}/`;
+  }
+  const imageSrc = (product.images && product.images.length ? `${base}${product.images[0]}` : '');
   const imageHtml = imageSrc ? `<img src='${imageSrc}' alt='${product.name}' class='detail-image' loading='lazy' decoding='async' onerror="this.style.display='none'">` : '';
   container.innerHTML = `
     <h1 class='detail-title'>${product.name}</h1>
