@@ -48,7 +48,8 @@ async function displayFooterProducts() {
     if (isGhPages) {
         const segs = window.location.pathname.split('/').filter(Boolean);
         const repo = segs[0] || '';
-        prefix = `/${repo}/`;
+        // Force same-origin absolute links to avoid unwanted domain redirects
+        prefix = `${window.location.origin}/${repo}/`;
     } else {
         const path = window.location.pathname;
         const parts = path.split('/').filter(Boolean);
@@ -89,7 +90,7 @@ async function displayProductsList() {
             if (isGhPages) {
                 const segs = window.location.pathname.split('/').filter(Boolean);
                 const repo = segs[0] || '';
-                const base = `/${repo}/`;
+                const base = `${window.location.origin}/${repo}/`;
                 href = `${base}products/${p.slug}/`;
             } else {
                 href = `products/${p.slug}/`;
