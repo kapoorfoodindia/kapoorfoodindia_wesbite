@@ -62,6 +62,9 @@ async function displayFooterProducts() {
     footerProducts.innerHTML = products.map(product =>
         `<li><a href="${prefix}products/${product.slug}/">${product.name}</a></li>`
     ).join('');
+
+    // Normalize links to stay on the current origin (handles cache or stale HTML)
+    enforceSameOriginProductLinks(footerProducts);
 }
 
 // Initialize products display
@@ -143,10 +146,39 @@ async function displayProductsList() {
         scroller.addEventListener('touchstart', onDown, {passive:true});
         scroller.addEventListener('touchmove', onMove, {passive:true});
         scroller.addEventListener('touchend', onUp);
+
+        // Normalize links inside scroller to current origin just in case
+        enforceSameOriginProductLinks(scroller);
     }
 
     // Keep supporting the legacy vertical list if present on any page
     if (listEl) {
         listEl.innerHTML = products.map(p => `<li class="product-list-item"><a href="products/${p.slug}/" class="product-link">${p.name}</a></li>`).join('');
     }
+}
+
+// Ensure all product links keep the current origin (github.io vs custom domain)
+function enforceSameOriginProductLinks(scope) {
+    const container = scope || document;
+    const origin = window.location.origin;
+    const isGh = window.location.hostname.endsWith('github.io');
+    const segs = window.location.pathname.split('/').filter(Boolean);
+    const repo = isGh ? (segs[0] || '') : '';
+    const base = isGh ? `${origin}/${repo}` : origin;
+    const anchors = container.querySelectorAll('a[href*="/products/"]');
+    anchors.forEach(a => {
+        try {
+            const url = new URL(a.getAttribute('href'), origin);
+            if (url.origin !== origin) {
+                const parts = url.pathname.split('/').filter(Boolean);
+                const idx = parts.lastIndexOf('products');
+                if (idx >= 0 && parts[idx + 1]) {
+                    const slug = parts[idx + 1];
+                    a.setAttribute('href', `${base}/products/${slug}/`);
+                }
+            }
+        } catch (e) {
+            // ignore
+        }
+    });
 }
