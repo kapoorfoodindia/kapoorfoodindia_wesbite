@@ -159,6 +159,159 @@
       "popular": true,
       "bestSeller": true
     }
+    ,
+    {
+      "id": 4,
+      "name": "Frozen Cauliflower",
+      "slug": "frozen-cauliflower",
+      "category": "Vegetables",
+      "shortDescription": "Tender cauliflower florets, cleaned and quick-frozen for convenience.",
+      "description": "Premium cauliflower florets picked at peak freshness and frozen using IQF technology to lock in natural taste, color, and nutrition. Ideal for gobi masala, manchurian, parathas, and stir-fries.",
+      "images": ["assets/images/cauliflower-1.png"],
+      "features": [
+        "Fresh & Tender Florets",
+        "Pre-cleaned & Ready to Cook",
+        "No Artificial Preservatives",
+        "Perfect for Indian & Continental Dishes"
+      ],
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Frozen Broccoli",
+      "slug": "frozen-broccoli",
+      "category": "Vegetables",
+      "shortDescription": "Nutritious broccoli florets frozen to preserve crunch and color.",
+      "description": "High-quality broccoli florets, rich in vitamins and fiber, frozen to maintain natural crunch and vibrant green color. Great for salads, pasta, soups, and stir-fries.",
+      "images": ["assets/images/broccoli-1.png"],
+      "features": [
+        "Rich in Vitamins & Fiber",
+        "Vibrant Color & Crunch",
+        "Pre-cleaned & Ready to Cook",
+        "Versatile Use"
+      ],
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "Frozen Okra (Bhindi)",
+      "slug": "frozen-okra",
+      "category": "Vegetables",
+      "shortDescription": "Uniformly cut okra pieces, non-sticky and ready to cook.",
+      "description": "Premium okra (bhindi) pieces processed to reduce stickiness and frozen for maximum convenience. Ideal for bhindi masala, kurkuri bhindi, and stir-fries.",
+      "images": ["assets/images/okra-1.png"],
+      "features": [
+        "Non-sticky Processing",
+        "Uniformly Cut",
+        "Pre-cleaned & Ready to Cook"
+      ],
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "Frozen Green Beans",
+      "slug": "frozen-green-beans",
+      "category": "Vegetables",
+      "shortDescription": "Tender French beans, cut and frozen to retain natural crunch.",
+      "description": "Crisp, cut green beans frozen with IQF technology to lock in taste and nutrition. Great for pulao, salads, mixed veg, and continental dishes.",
+      "images": ["assets/images/green-bean-1.png"],
+      "features": [
+        "Crisp & Tender",
+        "Pre-cleaned & Ready to Cook",
+        "No Artificial Colors"
+      ],
+      "available": true
+    },
+    {
+      "id": 8,
+      "name": "Frozen Spinach",
+      "slug": "frozen-spinach",
+      "category": "Vegetables",
+      "shortDescription": "Chopped spinach leaves frozen to preserve nutrients and color.",
+      "description": "Fresh spinach leaves washed, chopped, and frozen to retain their rich green color and nutrients. Ideal for palak paneer, dals, parathas, and soups.",
+      "images": ["assets/images/spinach-1.png"],
+      "features": [
+        "Rich in Iron & Vitamins",
+        "Bright Green Color",
+        "Pre-cleaned & Ready to Use"
+      ],
+      "available": true
+    },
+    {
+      "id": 9,
+      "name": "Frozen Spinach Cubes",
+      "slug": "frozen-spinach-cubes",
+      "category": "Vegetables",
+      "shortDescription": "Convenient spinach cubes for portion-controlled cooking.",
+      "description": "Hygienically processed spinach formed into easy-to-use cubes. Perfect for quick additions to curries, soups, and smoothies.",
+      "images": ["assets/images/spinach-cubes-1.png"],
+      "features": [
+        "No Thawing Needed",
+        "Mess-free Portions",
+        "Nutrient Rich"
+      ],
+      "available": true
+    },
+    {
+      "id": 10,
+      "name": "Frozen Carrot Slices",
+      "slug": "frozen-carrot-slices",
+      "category": "Vegetables",
+      "shortDescription": "Evenly sliced carrots, sweet and ready to cook.",
+      "description": "Fresh carrots sliced evenly and frozen to retain sweetness and color. Ideal for pulao, soups, stews, and mixed vegetables.",
+      "images": ["assets/images/carrot-sliced-1.png"],
+      "features": [
+        "Even Slices",
+        "Sweet & Crisp",
+        "Pre-cleaned & Ready to Cook"
+      ],
+      "available": true
+    },
+    {
+      "id": 11,
+      "name": "Frozen Diced Onions",
+      "slug": "frozen-diced-onions",
+      "category": "Vegetables",
+      "shortDescription": "Perfectly diced onions to save prep time.",
+      "description": "Uniformly diced onions, ready to use straight from the freezer—no peeling or chopping needed. Great for gravies, curries, and bhaji.",
+      "images": ["assets/images/onion-diced-1.png"],
+      "features": [
+        "Time Saving",
+        "Uniform Dice",
+        "Tear-free Cooking"
+      ],
+      "available": true
+    },
+    {
+      "id": 12,
+      "name": "Frozen Garlic Cloves",
+      "slug": "frozen-garlic-cloves",
+      "category": "Vegetables",
+      "shortDescription": "Peeled garlic cloves, fresh-frozen for everyday cooking.",
+      "description": "Whole peeled garlic cloves, frozen to retain aroma and flavor. Use directly in tadkas, curries, and marinades.",
+      "images": ["assets/images/garlic-cloves-1.png"],
+      "features": [
+        "Peeled & Ready",
+        "Strong Aroma",
+        "Long Shelf Life"
+      ],
+      "available": true
+    },
+    {
+      "id": 13,
+      "name": "Frozen Green Chillies",
+      "slug": "frozen-green-chillies",
+      "category": "Vegetables",
+      "shortDescription": "Spicy green chillies frozen to preserve heat and freshness.",
+      "description": "Fresh green chillies, cleaned and frozen to maintain heat and freshness. Ideal for tempering, chutneys, and marinades.",
+      "images": ["assets/images/green-chilli-1.png"],
+      "features": [
+        "Bold Heat",
+        "Fresh Flavor",
+        "Pre-cleaned & Ready"
+      ],
+      "available": true
+    }
   ],
   "categories": [
     {
@@ -168,5 +321,5 @@
       "image": "assets/images/category-vegetables.jpg"
     }
   ],
-  "lastUpdated": "2024-11-16"
+  "lastUpdated": "2026-01-12"
 }
