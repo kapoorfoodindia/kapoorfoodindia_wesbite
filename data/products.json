@@ -4,11 +4,11 @@
       "id": 1,
       "name": "Frozen Green Peas",
       "slug": "frozen-green-peas",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Premium quality frozen green peas, handpicked and quick-frozen to preserve their natural sweetness and nutritional value.",
       "description": "Our Frozen Green Peas are sourced from the finest farms in North India and processed using state-of-the-art IQF (Individual Quick Freezing) technology. This method ensures that each pea retains its natural color, texture, and nutritional value. These tender, sweet peas are perfect for traditional Indian dishes like matar paneer, pulao, samosas, and parathas. They're also excellent in pasta, soups, and salads.",
       "images": [
-        "assets/images/frozen-peas-1.png"
+        "assets/images/frozen_vegetables/frozen-peas-1.png"
       ],
       "features": [
         "100% Natural & Fresh",
@@ -51,11 +51,11 @@
       "id": 2,
       "name": "Frozen Sweet Corn",
       "slug": "frozen-sweet-corn",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Golden sweet corn kernels frozen at peak freshness, naturally sweet and packed with nutrients.",
       "description": "Our Frozen Sweet Corn features premium quality corn kernels harvested at the peak of ripeness and immediately frozen to lock in their natural sweetness and nutritional goodness. Each kernel bursts with flavor and maintains its tender-crisp texture. Ideal for soups, salads, pasta, chaat, sandwiches, and traditional corn preparations. These versatile kernels add a touch of natural sweetness and vibrant color to any dish.",
       "images": [
-        "assets/images/frozen-corn-1.png"
+        "assets/images/frozen_vegetables/frozen-corn-1.png"
       ],
       "features": [
         "Farm Fresh & Sweet",
@@ -99,11 +99,11 @@
       "id": 3,
       "name": "Frozen Mix Vegetables",
       "slug": "frozen-mix-vegetables",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "A perfectly balanced blend of premium vegetables - peas, carrots, beans, and corn for ultimate convenience.",
       "description": "Our Frozen Mix Vegetables offer the perfect combination of nutrition and convenience. This thoughtfully curated blend includes garden-fresh green peas, crisp carrots, tender French beans, and sweet corn kernels - all selected at their prime and frozen using advanced technology. This versatile mix is your go-to solution for quick yet nutritious meals. Ideal for vegetable pulao, fried rice, pasta, noodles, curries, and Chinese preparations. Save time on washing, peeling, and chopping while ensuring your family gets balanced nutrition.",
       "images": [
-        "assets/images/mix-veg-1.png"
+        "assets/images/frozen_vegetables/mix-veg-1.png"
       ],
       "features": [
         "4-in-1 Balanced Vegetable Mix",
@@ -164,10 +164,10 @@
       "id": 4,
       "name": "Frozen Cauliflower",
       "slug": "frozen-cauliflower",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Tender cauliflower florets, cleaned and quick-frozen for convenience.",
       "description": "Premium cauliflower florets picked at peak freshness and frozen using IQF technology to lock in natural taste, color, and nutrition. Ideal for gobi masala, manchurian, parathas, and stir-fries.",
-      "images": ["assets/images/cauliflower-1.png"],
+      "images": ["assets/images/frozen_vegetables/cauliflower-1.png"],
       "features": [
         "Fresh & Tender Florets",
         "Pre-cleaned & Ready to Cook",
@@ -180,10 +180,10 @@
       "id": 5,
       "name": "Frozen Broccoli",
       "slug": "frozen-broccoli",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Nutritious broccoli florets frozen to preserve crunch and color.",
       "description": "High-quality broccoli florets, rich in vitamins and fiber, frozen to maintain natural crunch and vibrant green color. Great for salads, pasta, soups, and stir-fries.",
-      "images": ["assets/images/broccoli-1.png"],
+      "images": ["assets/images/frozen_vegetables/broccoli-1.png"],
       "features": [
         "Rich in Vitamins & Fiber",
         "Vibrant Color & Crunch",
@@ -196,10 +196,10 @@
       "id": 6,
       "name": "Frozen Okra (Bhindi)",
       "slug": "frozen-okra",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Uniformly cut okra pieces, non-sticky and ready to cook.",
       "description": "Premium okra (bhindi) pieces processed to reduce stickiness and frozen for maximum convenience. Ideal for bhindi masala, kurkuri bhindi, and stir-fries.",
-      "images": ["assets/images/okra-1.png"],
+      "images": ["assets/images/frozen_vegetables/okra-1.png"],
       "features": [
         "Non-sticky Processing",
         "Uniformly Cut",
@@ -211,10 +211,10 @@
       "id": 7,
       "name": "Frozen Green Beans",
       "slug": "frozen-green-beans",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Tender French beans, cut and frozen to retain natural crunch.",
       "description": "Crisp, cut green beans frozen with IQF technology to lock in taste and nutrition. Great for pulao, salads, mixed veg, and continental dishes.",
-      "images": ["assets/images/green-bean-1.png"],
+      "images": ["assets/images/frozen_vegetables/green-bean-1.png"],
       "features": [
         "Crisp & Tender",
         "Pre-cleaned & Ready to Cook",
@@ -226,10 +226,10 @@
       "id": 8,
       "name": "Frozen Spinach",
       "slug": "frozen-spinach",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Chopped spinach leaves frozen to preserve nutrients and color.",
       "description": "Fresh spinach leaves washed, chopped, and frozen to retain their rich green color and nutrients. Ideal for palak paneer, dals, parathas, and soups.",
-      "images": ["assets/images/spinach-1.png"],
+      "images": ["assets/images/frozen_vegetables/spinach-1.png"],
       "features": [
         "Rich in Iron & Vitamins",
         "Bright Green Color",
@@ -241,10 +241,10 @@
       "id": 9,
       "name": "Frozen Spinach Cubes",
       "slug": "frozen-spinach-cubes",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Convenient spinach cubes for portion-controlled cooking.",
       "description": "Hygienically processed spinach formed into easy-to-use cubes. Perfect for quick additions to curries, soups, and smoothies.",
-      "images": ["assets/images/spinach-cubes-1.png"],
+      "images": ["assets/images/frozen_vegetables/spinach-cubes-1.png"],
       "features": [
         "No Thawing Needed",
         "Mess-free Portions",
@@ -256,10 +256,10 @@
       "id": 10,
       "name": "Frozen Carrot Slices",
       "slug": "frozen-carrot-slices",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Evenly sliced carrots, sweet and ready to cook.",
       "description": "Fresh carrots sliced evenly and frozen to retain sweetness and color. Ideal for pulao, soups, stews, and mixed vegetables.",
-      "images": ["assets/images/carrot-sliced-1.png"],
+      "images": ["assets/images/frozen_vegetables/carrot-sliced-1.png"],
       "features": [
         "Even Slices",
         "Sweet & Crisp",
@@ -271,10 +271,10 @@
       "id": 11,
       "name": "Frozen Diced Onions",
       "slug": "frozen-diced-onions",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Perfectly diced onions to save prep time.",
       "description": "Uniformly diced onions, ready to use straight from the freezer—no peeling or chopping needed. Great for gravies, curries, and bhaji.",
-      "images": ["assets/images/onion-diced-1.png"],
+      "images": ["assets/images/frozen_vegetables/onion-diced-1.png"],
       "features": [
         "Time Saving",
         "Uniform Dice",
@@ -286,10 +286,10 @@
       "id": 12,
       "name": "Frozen Garlic Cloves",
       "slug": "frozen-garlic-cloves",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Peeled garlic cloves, fresh-frozen for everyday cooking.",
       "description": "Whole peeled garlic cloves, frozen to retain aroma and flavor. Use directly in tadkas, curries, and marinades.",
-      "images": ["assets/images/garlic-cloves-1.png"],
+      "images": ["assets/images/frozen_vegetables/garlic-cloves-1.png"],
       "features": [
         "Peeled & Ready",
         "Strong Aroma",
@@ -301,24 +301,106 @@
       "id": 13,
       "name": "Frozen Green Chillies",
       "slug": "frozen-green-chillies",
-      "category": "Vegetables",
+      "category": "Frozen Vegetables",
       "shortDescription": "Spicy green chillies frozen to preserve heat and freshness.",
       "description": "Fresh green chillies, cleaned and frozen to maintain heat and freshness. Ideal for tempering, chutneys, and marinades.",
-      "images": ["assets/images/green-chilli-1.png"],
+      "images": ["assets/images/frozen_vegetables/green-chilli-1.png"],
       "features": [
         "Bold Heat",
         "Fresh Flavor",
         "Pre-cleaned & Ready"
       ],
       "available": true
+    },
+    {
+      "id": 14,
+      "name": "Frozen Mango Pulp",
+      "slug": "frozen-mango-pulp",
+      "category": "Frozen Pulps",
+      "shortDescription": "Rich Alphonso/Kesar mango pulp frozen to preserve natural sweetness.",
+      "description": "Premium mango pulp prepared from ripe, selected mangoes and frozen to lock in flavor and nutrients. Ideal for smoothies, desserts, lassi, and ice creams.",
+      "images": ["assets/images/frozen_pulps/mango-pulp-1.png"],
+      "features": [
+        "Premium Fruit Selection",
+        "No Artificial Colors",
+        "Ready to Use",
+        "Consistent Texture"
+      ],
+      "available": true
+    },
+    {
+      "id": 15,
+      "name": "Frozen Litchi Pulp",
+      "slug": "frozen-litchi-pulp",
+      "category": "Frozen Pulps",
+      "shortDescription": "Delicate litchi pulp frozen to preserve aroma and taste.",
+      "description": "Naturally sweet litchi pulp, carefully processed and frozen for refreshing beverages and desserts.",
+      "images": ["assets/images/frozen_pulps/litchi-pulp-1.png"],
+      "features": [
+        "Fresh & Fragrant",
+        "Hygienically Processed",
+        "Perfect for Drinks & Desserts"
+      ],
+      "available": true
+    },
+    {
+      "id": 16,
+      "name": "Frozen Strawberry Pulp",
+      "slug": "frozen-strawberry-pulp",
+      "category": "Frozen Pulps",
+      "shortDescription": "Vibrant strawberry pulp frozen to retain color and tang.",
+      "description": "Bright, tangy strawberry pulp ideal for shakes, sauces, and baking.",
+      "images": ["assets/images/frozen_pulps/strawberry-pulp-1.png"],
+      "features": [
+        "Rich Color",
+        "Natural Sweet-Tart Flavor",
+        "Ready to Use"
+      ],
+      "available": true
+    },
+    {
+      "id": 17,
+      "name": "Frozen Jamun Pulp",
+      "slug": "frozen-jamun-pulp",
+      "category": "Frozen Pulps",
+      "shortDescription": "Nutritious jamun pulp with authentic flavor, frozen fresh.",
+      "description": "Jamun (black plum) pulp processed to maintain natural nutrients and deep flavor. Great for beverages and desserts.",
+      "images": ["assets/images/frozen_pulps/jamun-pulp-1.png"],
+      "features": [
+        "Traditional Taste",
+        "Nutrient Rich",
+        "Convenient & Ready"
+      ],
+      "available": true
+    },
+    {
+      "id": 18,
+      "name": "Frozen Tomato Pulp",
+      "slug": "frozen-tomato-pulp",
+      "category": "Frozen Pulps",
+      "shortDescription": "Smooth tomato pulp frozen for everyday cooking.",
+      "description": "Finely processed tomato pulp with consistent texture, perfect for gravies, soups, and sauces.",
+      "images": ["assets/images/frozen_pulps/tomato-pulp.png"],
+      "features": [
+        "Consistent Texture",
+        "Time Saving",
+        "No Artificial Preservatives"
+      ],
+      "available": true
     }
   ],
   "categories": [
     {
-      "id": "vegetables",
-      "name": "Vegetables",
-      "description": "Fresh frozen vegetables picked at peak ripeness and frozen to preserve nutrients",
-      "image": "assets/images/category-vegetables.jpg"
+      "id": "frozen-vegetables",
+      "name": "Frozen Agri Products",
+      "description": "Fresh & frozen vegetables picked at peak ripeness and frozen to preserve nutrients",
+      "image": "assets/images/frozen_vegetables/mix-veg-1.png"
+    },
+    {
+      "id": "frozen-pulps",
+      "name": "Frozen Pulp Products",
+      "description": "Premium fruit and tomato pulps processed and frozen to lock in flavor",
+      "image": "assets/images/frozen_pulps/mango-pulp-1.png"
     }
   ],
   "lastUpdated": "2026-01-12"
