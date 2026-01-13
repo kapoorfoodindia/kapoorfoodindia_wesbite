@@ -138,15 +138,97 @@ ul {
 }
 
 /* Hero Section */
-.hero {
+/* .hero {
     position: relative;
     height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); */
+    /* Ensure the hero background image fills edge-to-edge with no side whitespace */
+    /* padding: 0;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
+} */
+
+/* HERO: full-width image with overlay text (no cropping, no centering box) */
+.hero.hero-media{
+  position: relative;
+
+  /* full width edge-to-edge */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  padding: 0;
+  overflow: hidden;
+  background: var(--primary-dark);
 }
+
+/* Make the image fill the full hero width */
+.hero.hero-media .hero-bg{
+  width: 100%;
+  height: auto;      /* keeps original image (no crop) */
+  display: block;
+}
+
+/* Keep overlay over the image */
+.hero.hero-media .hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+/* Place text/button ON TOP of image */
+
+.hero.hero-media .hero-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero.hero-media .hero-title{
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.65);
+}
+
+.hero.hero-media .hero-subtitle{
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.55);
+}
+
+@media (max-width: 768px){
+  .hero.hero-media .hero-title{
+    font-size: 2rem;
+  }
+
+  .hero.hero-media .hero-subtitle{
+    font-size: 1.1rem;
+  }
+}
+
+
+/* new One ends here */
 
 .hero::before {
     content: '';
@@ -590,7 +672,7 @@ section {
 }
 
 /* Page Header */
-.page-header {
+/* .page-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: white;
     text-align: center;
@@ -605,7 +687,73 @@ section {
 .page-header p {
     font-size: 1.2rem;
     opacity: 0.9;
+} */
+
+/* Small header banner for About/Products/Contact (separate from .hero) */
+.page-hero{
+  position: relative;
+
+  /* full width edge-to-edge */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  height: 190px;           /* <-- adjust this height as you like */
+  overflow: hidden;
+  background: var(--primary-dark);
 }
+
+/* Background image fills section */
+.page-hero-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* keeps it filled while staying short */
+  object-position: center; /* adjust if needed: center top / center 30% */
+}
+
+/* Dark overlay */
+.page-hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* Center text on top */
+.page-hero-content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.page-hero-title{
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.page-hero-subtitle{
+  font-size: 1.05rem;
+  opacity: 0.95;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px){
+  .page-hero{ height: 210px; }
+  .page-hero-title{ font-size: 1.8rem; }
+  .page-hero-subtitle{ font-size: 0.95rem; }
+}
+/* Page header ends here */
 
 /* About Detail Section */
 .about-detail-section {
