@@ -59,6 +59,14 @@ ul {
     padding: 0 20px;
 }
 
+/* Navbar needs to be less "boxed" than page content: keep full-width, but responsive padding */
+.navbar .container {
+    max-width: none;
+    width: 100%;
+    padding-left: clamp(14px, 3vw, 56px);
+    padding-right: clamp(14px, 3vw, 56px);
+}
+
 /* Navigation */
 .navbar {
     background-color: var(--bg-white);
