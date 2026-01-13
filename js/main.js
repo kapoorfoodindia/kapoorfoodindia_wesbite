@@ -2,15 +2,58 @@
 
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    // Ensure favicon exists on all pages (especially minified product pages)
+    (function ensureFavicon() {
+        const existingIcon = document.querySelector('link[rel~="icon"]');
+        if (existingIcon) return;
+
+        const pathname = window.location.pathname || '';
+        let faviconHref = 'assets/logo/fasal-favicon.png';
+        if (pathname.includes('/products/')) {
+            faviconHref = '../../assets/logo/fasal-favicon.png';
+        } else if (pathname.includes('/admin/')) {
+            faviconHref = '../assets/logo/fasal-favicon.png';
+        }
+
+        const icon = document.createElement('link');
+        icon.rel = 'icon';
+        icon.type = 'image/png';
+        icon.href = faviconHref;
+        document.head.appendChild(icon);
+
+        const apple = document.createElement('link');
+        apple.rel = 'apple-touch-icon';
+        apple.href = faviconHref;
+        document.head.appendChild(apple);
+    })();
+
     const navMenu = document.querySelector('.nav-menu');
+    const navWrapper = document.querySelector('.nav-wrapper');
+
+    // Some pages (e.g., older/minified product pages) may not include the hamburger button.
+    // Inject it so the menu stays hidden on mobile until clicked.
+    let mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    if (!mobileMenuToggle && navWrapper && navMenu) {
+        mobileMenuToggle = document.createElement('button');
+        mobileMenuToggle.className = 'mobile-menu-toggle';
+        mobileMenuToggle.type = 'button';
+        mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        navWrapper.insertBefore(mobileMenuToggle, navMenu);
+    }
     
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
+            const expanded = navMenu.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+
             const icon = this.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
         });
     }
 
@@ -20,9 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
                 navMenu.classList.remove('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                }
             }
         });
     });
