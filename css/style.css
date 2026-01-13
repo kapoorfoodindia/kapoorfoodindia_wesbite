@@ -1164,9 +1164,24 @@ section {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    /* Force equal column widths so long content (e.g., addresses) doesn't skew spacing */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: clamp(24px, 6vw, 120px);
+    row-gap: 2rem;
     margin-bottom: 2rem;
+}
+
+/* Allow grid children to shrink and wrap instead of expanding columns */
+.footer-col {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: clamp(20px, 5vw, 64px);
+    }
 }
 
 .footer-col h3 {
