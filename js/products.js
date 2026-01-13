@@ -49,39 +49,19 @@ async function loadCatalog() {
 
 // Removed older grid renderers for home/products pages (unused)
 
-// Display products in footer
-async function displayFooterProducts() {
+// Remove the "Our Products" column from the footer (if present)
+function removeFooterProductsColumn() {
     const footerProducts = document.getElementById('footerProducts');
     if (!footerProducts) return;
-
-    const products = await loadProducts();
-    // Build links that work from any nesting level and on GitHub Pages
-    const isGhPages = window.location.hostname.endsWith('github.io');
-    let prefix;
-    if (isGhPages) {
-        const segs = window.location.pathname.split('/').filter(Boolean);
-        const repo = segs[0] || '';
-        // Force same-origin absolute links to avoid unwanted domain redirects
-        prefix = `${window.location.origin}/${repo}/`;
-    } else {
-        const path = window.location.pathname;
-        const parts = path.split('/').filter(Boolean);
-        const last = parts[parts.length - 1] || '';
-        const isFile = last.includes('.');
-        const upLevels = Math.max(0, parts.length - (isFile ? 1 : 0));
-        prefix = upLevels > 0 ? '../'.repeat(upLevels) : '';
-    }
-
-    footerProducts.innerHTML = products.map(product =>
-        `<li><a href="${prefix}products/${product.slug}/">${product.name}</a></li>`
-    ).join('');
+    const footerCol = footerProducts.closest('.footer-col');
+    if (footerCol) footerCol.remove();
 }
 
 // Initialize products display
 document.addEventListener('DOMContentLoaded', function() {
     // Prefer category sections if a scroller exists on page
     displayCategorySections();
-    displayFooterProducts();
+    removeFooterProductsColumn();
 });
 
 // New: simple list of product names linking to detail pages
