@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
     const navWrapper = document.querySelector('.nav-wrapper');
 
+    // Normalize brand display: switch logo text to "Fasal"
+    (function updateBranding(){
+        const logoLink = document.querySelector('.logo.logo-link');
+        const logoImg = document.querySelector('.logo-img');
+        const logoTitle = document.querySelector('.logo-text h1');
+
+        if (logoLink) logoLink.setAttribute('aria-label', 'Fasal');
+        if (logoImg) logoImg.setAttribute('alt', 'Fasal logo');
+        if (logoTitle) logoTitle.textContent = 'Fasal';
+    })();
+
     // Some pages (e.g., older/minified product pages) may not include the hamburger button.
     // Inject it so the menu stays hidden on mobile until clicked.
     let mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

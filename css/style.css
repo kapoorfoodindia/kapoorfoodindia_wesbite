@@ -91,7 +91,7 @@ ul {
 
 /* Header logo layout */
 .logo-link{display:flex;align-items:center;gap:.75rem}
-.logo-img{height:80px;width:auto;display:block}
+.logo-img{height:96px;width:auto;display:block}
 .logo-text h1{margin:0;line-height:1}
 .logo-text .tagline{margin:0}
 
