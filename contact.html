@@ -100,9 +100,14 @@
                 </div>
 
                 <div class="contact-form-section">
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwpgdlaz" method="POST">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                         <h2>Send Us a Message</h2>
-                        <input type="hidden" name="subject" value="New contact from Kapoor Food India">
+                        <!-- Web3Forms configuration -->
+                        <input type="hidden" name="access_key" value="bc3987d3-4c62-4d62-a4d1-e6caf060151b">
+                        <input type="hidden" name="subject" value="New Contact from Kapoor Food India Website">
+                        <input type="hidden" name="from_name" value="Kapoor Food India Website">
+                        <input type="hidden" name="redirect" value="https://kapoorfoodindia.in/contact.html?submitted=true">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
                         
                         <div class="form-group">
                             <label for="name">Full Name *</label>

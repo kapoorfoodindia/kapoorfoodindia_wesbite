@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = document.getElementById('emailError');
     const phoneError = document.getElementById('phoneError');
 
+    // Check if returning from successful submission
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        showNotification('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+        // Clean up URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     const validateEmail = (value) => {
         // Rule: must contain '@' and at least one '.' after '@'
         if (!value) return false;
@@ -77,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (messageInput) messageInput.addEventListener('input', updateSubmitState);
 
     if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', function(e) {
             // Validate before submit
             const emailOk = validateEmail(emailInput.value);
             const phoneDigits = phoneInput.value || '';
@@ -93,34 +101,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Use Formspree to send email
-            e.preventDefault();
-            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
-            try {
-                const formData = new FormData(contactForm);
-                const fullPhone = phoneDigits ? `${countryCodeSelect.value}${phoneDigits}` : '';
-                formData.append('phoneFull', fullPhone);
-                formData.append('page', window.location.href);
-
-                const resp = await fetch(contactForm.action || 'https://formspree.io/f/mwpgdlaz', {
-                    method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: formData
-                });
-                if (resp.ok) {
-                    showNotification('Thank you! Your message has been sent.', 'success');
-                    contactForm.reset();
-                    setError(emailError, '');
-                    setError(phoneError, '');
-                } else {
-                    showNotification('Unable to send message right now. Please try again later.', 'error');
+            // Add full phone number to a hidden field before submission
+            if (phoneDigits) {
+                let fullPhoneInput = contactForm.querySelector('input[name="phoneFull"]');
+                if (!fullPhoneInput) {
+                    fullPhoneInput = document.createElement('input');
+                    fullPhoneInput.type = 'hidden';
+                    fullPhoneInput.name = 'phoneFull';
+                    contactForm.appendChild(fullPhoneInput);
                 }
-            } catch (err) {
-                console.error(err);
-                showNotification('Network error. Please try again.', 'error');
-            } finally {
-                if (submitBtn) { submitBtn.disabled = !isFormValid(); submitBtn.textContent = 'Send Message'; }
+                fullPhoneInput.value = `${countryCodeSelect.value}${phoneDigits}`;
             }
+
+            // Show sending state (form will submit normally to Formsubmit.co)
+            if (submitBtn) { 
+                submitBtn.disabled = true; 
+                submitBtn.textContent = 'Sending...'; 
+            }
+            // Let the form submit naturally - Formsubmit.co handles the rest
         });
     }
     // Initialize submit button state on load
