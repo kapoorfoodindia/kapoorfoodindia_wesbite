@@ -25,3 +25,4 @@ logs/
 # Build files (if you add a build process)
 dist/
 build/
+presentation/

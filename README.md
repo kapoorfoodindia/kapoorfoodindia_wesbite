@@ -242,7 +242,7 @@ For questions or issues:
 
 ## 📄 License
 
-© 2024 Kapoor Food India. All rights reserved.
+© 2026 Kapoor Food India. All rights reserved.
 
 ---
 
