@@ -58,7 +58,7 @@
         <p>Your download should start automatically...</p>
         <div class="spinner"></div>
         <p style="font-size: 0.85rem; opacity: 0.7;">If download doesn't start, click below:</p>
-        <a href="fasal_visiting_card.pdf" download="Fasal_Visiting_Card.pdf" class="manual-link">Download Now</a>
+        <a href="fasal_visiting_card.jpeg" download="fasal_visiting_card.jpeg" class="manual-link">Download Now</a>
     </div>
 
     <script>
@@ -66,8 +66,8 @@
         window.onload = function() {
             setTimeout(function() {
                 var link = document.createElement('a');
-                link.href = 'fasal_visiting_card.pdf';
-                link.download = 'Fasal_Visiting_Card.pdf';
+                link.href = 'fasal_visiting_card.jpeg';
+                link.download = 'fasal_visiting_card.jpeg';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
