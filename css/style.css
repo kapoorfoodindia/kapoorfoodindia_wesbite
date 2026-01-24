@@ -100,18 +100,17 @@ ul {
 /* Header logo layout */
 .logo-link{display:flex;align-items:center;gap:.75rem}
 .logo-img{height:120px;width:auto;display:block}
-.logo-text h1{margin:0;line-height:1;font-family:'Hamzah',sans-serif;font-size:2.5rem;letter-spacing:0.15em;transform:scaleX(1.1);transform-origin:left}
+.logo-text h1{margin:0;line-height:1;font-family:'Hamzah',sans-serif;font-size:2.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--primary-color);font-weight:800}
 .logo-text .tagline{margin:0}
 
 .logo h1 {
     font-family: 'Hamzah', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--primary-color);
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 0.2rem;
-    letter-spacing: 0.15em;
-    transform: scaleX(1.1);
-    transform-origin: left;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .logo .tagline {
