@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapoor Food India - Visiting Card</title>
+    <link rel="icon" type="image/png" href="assets/logo/fasal-favicon.png">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Custom Font */
+        @font-face {
+            font-family: 'Hamzah';
+            src: url('assets/font-style/hamzah-font/Hamzah-lxYqw.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Visiting Card - Standard size 3.5" x 2" (350px x 200px at 100dpi, scaled up) */
+        .visiting-card {
+            width: 700px;
+            height: 400px;
+            background-color: #ffffff;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background banner overlay */
+        .visiting-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/banner/home-banner-1.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.65;
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 25px;
+        }
+
+        /* Header section */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Logo */
+        .logo-container {
+            width: 160px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            overflow: hidden;
+            margin-left: -40px;
+            margin-top: -45px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Contact info - top right */
+        .contact-info {
+            text-align: right;
+            font-style: italic;
+            margin-right: -15px;
+            margin-top: -15px;
+        }
+
+        .contact-info a {
+            display: block;
+            color: #0d3015;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.8;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Center brand section */
+        .brand-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: -160px;
+        }
+
+        .brand-name {
+            font-family: 'Hamzah', sans-serif;
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: #0d3015;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #0d3015;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Footer section */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .company-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0d3015;
+        }
+
+        .website {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0d3015;
+        }
+
+        .website a {
+            color: #0d3015;
+            text-decoration: none;
+        }
+
+        .website a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .visiting-card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Card title */
+        .card-title {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Print button */
+        .print-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background-color: #2d7a3e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background-color: #1f5229;
+        }
+
+        @media print {
+            .print-btn, .card-title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <h2 class="card-title">Kapoor Food India - Visiting Card</h2>
+        
+        <!-- Visiting Card -->
+        <div class="visiting-card">
+            <div class="card-content">
+                <!-- Header with logo and contact -->
+                <div class="card-header">
+                    <div class="logo-container">
+                        <img src="assets/logo/KFI_logo.png" alt="Kapoor Food India Logo">
+                    </div>
+                    <div class="contact-info">
+                        <a href="mailto:support@kapoorfoodindia.in">support@kapoorfoodindia.in</a>
+                        <a href="tel:+919999989714">+91 9999989714</a>
+                    </div>
+                </div>
+
+                <!-- Center brand section -->
+                <div class="brand-section">
+                    <h1 class="brand-name">FASAL</h1>
+                    <p class="tagline">From Farms with Freshness</p>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer">
+                    <span class="company-name">Kapoor Food India</span>
+                    <span class="website"><a href="https://www.kapoorfoodindia.in" target="_blank">www.kapoorfoodindia.in</a></span>
+                </div>
+            </div>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">Print Card</button>
+    </div>
+</body>
+</html>

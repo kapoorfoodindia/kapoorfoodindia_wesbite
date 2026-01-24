@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading Visiting Card - Kapoor Food India</title>
+    <link rel="icon" type="image/png" href="../logo/fasal-favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d7a3e 0%, #1f5229 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+        }
+        .logo { width: 120px; margin-bottom: 20px; }
+        h1 { font-size: 1.5rem; margin-bottom: 10px; }
+        p { font-size: 1rem; opacity: 0.9; margin-bottom: 20px; }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .manual-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .manual-link:hover { background: #f57c00; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../logo/KFI_logo.png" alt="Kapoor Food India" class="logo">
+        <h1>Fasal Visiting Card</h1>
+        <p>Your download should start automatically...</p>
+        <div class="spinner"></div>
+        <p style="font-size: 0.85rem; opacity: 0.7;">If download doesn't start, click below:</p>
+        <a href="fasal_visiting_card.pdf" download="Fasal_Visiting_Card.pdf" class="manual-link">Download Now</a>
+    </div>
+
+    <script>
+        // Auto-trigger download after page loads
+        window.onload = function() {
+            setTimeout(function() {
+                var link = document.createElement('a');
+                link.href = 'fasal_visiting_card.pdf';
+                link.download = 'Fasal_Visiting_Card.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
